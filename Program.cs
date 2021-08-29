@@ -16,10 +16,62 @@ Print the bill….
 
 
 using System;
-using BillCal;
+
 
 namespace PrintBill
 {
+    public class calculation
+    {
+        int unit = 0;
+        int ammount = 0;
+        double tax = 0;
+        double finalAmount = 0;
+        string cname;
+        int cnum;
+        public void AcceptData()
+        {
+            Console.WriteLine("Welcome to Electricity board");
+            Console.WriteLine("Entere your name :");
+            cname = Console.ReadLine();
+            Console.WriteLine("Enter your consumer number");
+            cnum = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter your units");
+            unit = Convert.ToInt32(Console.ReadLine());
+        }
+        public void CalBill()
+        {                                                         //use of nested if
+            if (unit <= 100)
+            {
+                ammount = unit * 1;
+            }
+            else if (unit > 100 && unit <= 200)
+            {
+                ammount = ((unit - 100) * 2) + 100;
+            }
+            else if (unit > 200 && unit <= 300)
+            {
+                ammount = ((unit - 200) * 3) + 300;
+            }
+            else if (unit > 300 && unit <= 500)
+            {
+                ammount = ((unit - 300) * 4) + 600;
+            }
+            else
+            {
+                ammount = ((unit - 500) * 5) + 1400;
+            }
+
+            tax = ammount * 0.1;
+            finalAmount = ammount + tax + 50;
+        }
+        public void printBill()
+        {
+            Console.WriteLine("Consumer number : " + cnum);
+            Console.WriteLine("Consumer number : " + cname);
+            Console.WriteLine("Your Units : " + unit);
+            Console.WriteLine("Your electricity bill is :" + finalAmount);
+        }
+    }
     class Program
     {
         static void Main(string[] args)
