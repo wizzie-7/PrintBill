@@ -31,7 +31,7 @@ namespace PrintBill
             times = Convert.ToInt32(Console.ReadLine());
             while(i <= times)                                  //use of while loop
             {
-                cal.AcceptData();
+                //cal.AcceptData();
                 cal.CalBill();
                 cal.printBill();
                 i++;
